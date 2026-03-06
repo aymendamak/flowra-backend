@@ -1,7 +1,8 @@
 import { Router } from "express";
+import { getAllUsers, getUserById, createNewUser } from "./user.controller";
 
 export const userRoutes = Router();
 
-userRoutes.get("/", (req, res) => {
-  res.status(200).json({ message: "Hello World" });
-});
+userRoutes.get("/", getAllUsers);
+userRoutes.get("/:id", getUserById);
+userRoutes.post("/", createNewUser);

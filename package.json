@@ -4,24 +4,33 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/server.ts",
+    "test": "jest --runInBand",
+    "test:watch": "jest --watch --runInBand"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@prisma/adapter-pg": "^7.4.2",
+    "@prisma/client": "^7.4.2",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "pg": "^8.19.0"
+    "pg": "^8.19.0",
+    "prisma": "^7.4.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
     "@types/node": "^25.3.3",
     "@types/pg": "^8.18.0",
+    "@types/supertest": "^7.2.0",
     "eslint": "^10.0.2",
+    "jest": "^30.2.0",
     "nodemon": "^3.1.14",
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
