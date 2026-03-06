@@ -1,13 +1,17 @@
-import express, { Request, Response } from "express";
-import { env } from "./config/env";
+import express from "express";
+import { errorHandler } from "./middleware/errorHandler";
+import { userRoutes } from "./modules/users/user.route";
+
 const app = express();
 
-app.listen(env.PORT, () => {
-  console.log(`Server is running on port ${env.PORT}`);
-});
+// Middleware globaux
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req: Request, res: Response) => {
-  res.status(200).json({ message: "Hello World" });
-});
+// Routes
+app.use("/api/users", userRoutes);
+
+// Doit toujours être en DERNIER
+app.use(errorHandler);
 
 export default app;
